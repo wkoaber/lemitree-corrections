@@ -1,0 +1,65 @@
+name: Suggest a correction
+description: Something wrong or missing in a LemiTree action or its evidence? Tell us.
+title: "Correction: "
+labels: ["correction", "to triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping LemiTree get it right. Every suggestion is read by a person.
+        **This page is public.** Please don't share health information about yourself or anyone else.
+  - type: input
+    id: action
+    attributes:
+      label: Which action?
+      description: Filled in for you when you come from the website.
+      placeholder: "ACT_00039 · Cover your feet with socks or a blanket during sleep"
+    validations:
+      required: true
+  - type: dropdown
+    id: part
+    attributes:
+      label: What is wrong or missing?
+      options:
+        - The name or description of the action
+        - How to do it (steps, settings)
+        - Time or cost
+        - Pros, cons or safety (who should not do this)
+        - The evidence (a study, its numbers, or the evidence label)
+        - A study that is missing
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: now
+    attributes:
+      label: What does LemiTree say now?
+      description: Copy the sentence or number, if you can.
+  - type: textarea
+    id: should
+    attributes:
+      label: What should it say, and why?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A DOI, PubMed ID or link to the study or guideline, if you have one.
+      placeholder: "https://doi.org/..."
+  - type: dropdown
+    id: role
+    attributes:
+      label: You are
+      options:
+        - A researcher or clinician
+        - A student
+        - Someone who tried the action
+        - Other
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Before you send
+      options:
+        - label: I have not included health information about myself or anyone else.
+          required: true
